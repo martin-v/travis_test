@@ -13,8 +13,5 @@ install:
   - pip install ansible
 
 script:
-  # Basic role syntax check
-  - ansible-playbook -i inventory test.yml --syntax-check
-
   # Run the role/playbook with ansible-playbook.
-  - ansible-playbook -i inventory test.yml -vvv --connection=local --become
+  - ansible-playbook -i inventory test.yml -vvvv --connection=local --become
