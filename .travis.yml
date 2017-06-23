@@ -1,0 +1,24 @@
+---
+sudo: required
+dist: trusty
+#group: deprecated-2017Q2
+language: python
+python: "2.7"
+
+before_install:
+  - sudo apt-get update -qq
+
+install:
+  # Install Ansible
+  - pip install ansible ansible-lint
+
+script:
+  # Basic role syntax check
+  - ansible-playbook -i inventory test.yml --syntax-check
+
+  # Best practices check
+  - ansible-lint test.yml
+
+  # Run the role/playbook with ansible-playbook.
+  - ansible-playbook -i inventory test.yml -vvv --connection=local --become
+
